@@ -3486,7 +3486,7 @@ section{
     margin: 0 auto;
     padding: 0 20px;
     color: black;
-    background: linear-gradient(to top,var(--mettalic-blue),#fff);
+    background: linear-gradient(to bottom,var(--mettalic-blue),#fff);
     border-radius: 2.5rem;
     padding: 60px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
