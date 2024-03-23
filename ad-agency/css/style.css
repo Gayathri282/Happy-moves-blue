@@ -3145,7 +3145,7 @@ input{
 }
 
 #contacts{
-    background: linear-gradient(to top,var(--mettalic-blue),#fff);
+    background: white;
 }
 #description{
     background: linear-gradient(to bottom, #1B1A55, #535C91);
@@ -3297,6 +3297,7 @@ section{
 ====================================== */
 .about{
     background:#ffffff;
+    padding: 4.5rem 20px;
    }
    /* .about-box-3{
     background-color: black;
@@ -3477,6 +3478,18 @@ section{
     margin: 0 auto;
     padding: 0 20px;
     color: black;
+    
+}
+.contact-container{
+    width: 93%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px;
+    color: black;
+    background: linear-gradient(to top,var(--mettalic-blue),#fff);
+    border-radius: 2.5rem;
+    padding: 60px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .key-features-container {
