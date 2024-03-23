@@ -3229,7 +3229,7 @@ input{
     top: 100px;
 }
 .item-wrapper.is-height-sticky-radius.is--overfloe-off.text{
-    background-color: black;
+    background:linear-gradient(45deg,#000,var(--mettalic-blue));
 }
 /* .container.is-column-64 {
     grid-row-gap: 64px;
@@ -3577,7 +3577,7 @@ height: 60vh !important;
     /* width: 200px; */
     height: 41px;
     border-radius: 2.5rem;
-    border: 1px solid;
+    /* border: 1px solid; */
     margin-top: 30px;
     color: black;
     padding-left: 20px;
