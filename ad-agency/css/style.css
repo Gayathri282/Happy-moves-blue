@@ -55,7 +55,7 @@ body {
     line-height: 26px;
     letter-spacing: 0.5px;
     overflow-x: hidden;
-    background-color: #fff !important;
+    background: #fff !important;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -3085,7 +3085,7 @@ team-list{
 }
   
   #work{
-
+    background: #fff !important;
     background-color: #fff;
   }
   .js-rotating{
