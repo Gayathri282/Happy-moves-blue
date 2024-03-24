@@ -58,6 +58,9 @@ body {
     background: #fff !important;
     -webkit-font-smoothing: antialiased;
 }
+body.loading {
+    visibility: hidden;
+}
 
 :root{
     --mettalic-blue:#295184;
