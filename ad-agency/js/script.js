@@ -789,6 +789,19 @@ function sendMail() {
   })
   
 
-// locomotive smooth scrooling
+//nav-item
+document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0);
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var navLink = document.querySelector('.nav-link[href="#home"]');
+
+        if (scrollPosition === 0) {
+            navLink.classList.add('active');
+        } else {
+            navLink.classList.remove('active');
+        }
+    });
+});
 
  
