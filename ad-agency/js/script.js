@@ -805,3 +805,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
  
+document.addEventListener('DOMContentLoaded', function() {
+    var lastScrollTop = 0;
+    var navbar = document.querySelector('nav');
+
+    window.addEventListener('scroll', function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Scroll down
+            navbar.style.top = "-100px"; // Hide navbar
+        } else {
+            // Scroll up
+            navbar.style.top = "0"; // Show navbar
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+});
+
+
+// Testimonial
+var swiper = new Swiper(".swiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2,
+      slideShadows: true
+    },
+    spaceBetween: 60,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
