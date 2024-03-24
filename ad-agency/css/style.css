@@ -2869,13 +2869,26 @@ team-list{
     }
   }
   
+:root {
+    --color-bg1: rgb(108, 0, 162);
+    --color-bg2: rgb(0, 17, 82);
+    --color1: 18, 113, 255;
+    --color2: 221, 74, 255;
+    --color3: 100, 220, 255;
+    --color4: 200, 50, 50;
+    --color5: 180, 180, 50;
+    --color-interactive: 140, 100, 255;
+    --circle-size: 80%;
+    --blending: hard-light;
+  }
+  
   
   .gradient-bg {
     width: 100vw;
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(40deg, var(--color), var(--color-bg2));
+    background: linear-gradient(140deg, #000, #15335a);
     top: 0;
     left: 0;
   }
@@ -2890,6 +2903,7 @@ team-list{
       width: 100%;
       height: 100%;
     }
+    
   
     .g1 {
       position: absolute;
