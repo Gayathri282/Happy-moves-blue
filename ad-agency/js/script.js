@@ -847,3 +847,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+ // Remove the loading class once the content is loaded
+ window.addEventListener('load', function() {
+    document.body.classList.remove('loading');
+});
