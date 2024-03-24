@@ -3028,7 +3028,7 @@ team-list{
     background: #fff;
 }
 #clients h2,#clients h2>span{
-    color:#000 !important
+    color:#ffffff !important
 }
 .btn-submit{
     background-color: var(--mettalic-blue);
@@ -3748,7 +3748,7 @@ html.has-scroll-smooth {
             /* margin: 45px; */
         }
         .testimonial-image-description{
-            font-size: 11px !important;
+            font-size: 9px !important;
             text-align: center;
             line-height: 1.7;
             padding: 7px;
@@ -3763,6 +3763,14 @@ html.has-scroll-smooth {
             font-weight: 700;
             font-family: 'Font Awesome 5 Free';
        
+      }
+      .img-person-data{
+        font-size: 12px;
+      }
+      @media(max-width:786px){
+        .img-person-data{
+            font-size: 8px !important;
+        }
       }
       .swiper-slide {
         width: 400px;
@@ -3785,34 +3793,6 @@ html.has-scroll-smooth {
         background: var(--border-blue);
       }
       
-      .swiper-slide span {
-        text-transform: uppercase;
-        color: #fff;
-        background: #1b7402;
-        padding: 7px 18px 7px 25px;
-        display: inline-block;
-        border-radius: 0 20px 20px 0px;
-        letter-spacing: 2px;
-        font-size: 0.8rem;
-        font-family: "Open Sans", sans-serif;
-      }
-      
-      .swiper-slide--one span {
-        background: #62667f;
-      }
-      
-      .swiper-slide--two span {
-        background: #087ac4;
-      }
-      
-      .swiper-slide--three span {
-        background: #b45205;
-      }
-      
-      .swiper-slide--four span {
-        background: #087ac4;
-      }
-      
       .swiper-slide h2 {
         color: #fff;
         font-family: "Roboto", sans-serif;
@@ -3828,6 +3808,7 @@ html.has-scroll-smooth {
         position: absolute;
         bottom: 20px;
       }
+      
       .testimonial-image-description{
         font-size: 15px;
         font-weight: 400;
