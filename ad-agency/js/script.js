@@ -851,3 +851,128 @@ document.addEventListener('DOMContentLoaded', function() {
  window.addEventListener('load', function() {
     document.body.classList.remove('loading');
 });
+
+// new about section
+// Define data for different sections
+const imagePath1 = "ad-agency\\img\\Milife Medicare -happymoves.jpg";
+const imagePathNeck='ad-agency\\img\\neck-happymoves.jpg'
+const imagePathHand= "ad-agency\\img\\hand-happymoves.jpg";
+const sectionsData = {
+    "key-features": {
+        "details": ["Immersive Therapy", "Customised Programs", "Real-Time Progress Tracking", "Comprehensive Skill Improvement"],
+        "visual": [imagePath1,imagePathNeck,imagePath1,imagePath1], // Array of image paths
+        "visualData": ["Dive into a world where therapy becomes an immersive and engaging experience, enhancing motivation and participation.",
+            "Tailor rehabilitation programs to individual needs, addressing specific areas such as upper body, neck, shoulder, hand, and spinal cord",
+            "Gain insights into patient progress with real-time tracking, empowering therapists to make data-driven decisions for optimal outcomes.",
+            "Address fine motor skills, gross motor skills, and cognitive improvements simultaneously, providing a holistic approach to rehabilitation."]
+    },
+
+    "what-we-give": {
+        "details": ["Muscle Memory Enhancement in Physiotherapy",
+            "Enhanced Patient Engagement and Motivation",
+            "Cognitive Improvement in Medical Rehabilitation"],
+        "visual": ['ad-agency/img/Ayurgreen -happymoves.JPG', 'path_to_what_we_give_image_2.jpg', 'ad-agency/img/Milife Medizone-happymoves.jpg'], // Array of image paths
+        "visualData": ["Improves muscle memory development, accuracy, and strength enhancement for patients undergoing physiotherapeutic rehabilitation.",
+            "Guarantees a captivating and pleasant experience, fostering heightened patient motivation and adherence.",
+            "Effective for improving accuracy and cognitive senses in a range of medical conditions, including stroke, paralysis, spinal cord injury, Parkinson’s Disease, and upper Musculoskeletal Problems."
+        ]
+    },
+    "focused-therapy": {
+        "details": ["Neck", "Shoulder", "Hand", "Cognitive Enhancement"],
+        "visual": [imagePathNeck, 'path_to_focused_therapy_image_2.jpg',imagePathHand], // Array of image paths
+        "visualData": ["Our virtual reality platform offers targeted exercises and therapies designed to improve neck mobility, flexibility, and strength. With personalised programs and immersive experiences, patients can regain comfort and function in their daily activities.",
+            "Happy Moves provides comprehensive shoulder rehabilitation programs aimed at enhancing range of motion, stability, and strength. Through interactive VR exercises, users can effectively recover from injuries, surgeries, or chronic conditions affecting the shoulder.",
+            "Our VR technology offers engaging hand therapy sessions to promote dexterity, coordination, and fine motor skills. Patients can enjoy interactive games and exercises designed to facilitate recovery from hand injuries, arthritis, or neurological conditions.",
+            "Happy Moves goes beyond physical rehabilitation to address cognitive functions such as memory, attention, and problem-solving. Our VR platform offers stimulating cognitive exercises and activities to support brain health and overall well-being."]
+    }
+};
+document.addEventListener("DOMContentLoaded", function() {
+    // Add event listeners to heading items
+    const headings = document.querySelectorAll(".heading");
+    headings.forEach(heading => {
+        heading.addEventListener("click", handleHeadingClick);
+    });
+
+    // Trigger click on the first heading item to select it
+    const firstHeading = document.querySelector(".heading");
+    firstHeading.click();
+});
+
+// Function to handle click on heading items
+function handleHeadingClick(event) {
+    const headingId = event.target.parentElement.id; // Get the ID of the clicked heading
+    const boxDetailsContainer = document.getElementById("box-details-container");
+
+    // Clear existing content
+    boxDetailsContainer.innerHTML = '';
+
+    let selectedIndex = 0; // Default selected index
+
+    // Set selected index for "Focused Therapy" and "What We Give" heading items
+    if (headingId === "focused-therapy" || headingId === "what-we-give") {
+        selectedIndex = 0;
+    } else {
+        // Get the index of the clicked detail item
+        selectedIndex = Array.from(event.target.parentElement.parentElement.children).indexOf(event.target.parentElement);
+    }
+
+    // Populate with new content based on clicked heading and selected index
+    const details = sectionsData[headingId].details;
+    details.forEach((detail, index) => {
+        const detailElem = document.createElement("div");
+        detailElem.classList.add("about-box", "box-details");
+        detailElem.innerHTML = `<p class="box-data">${detail}</p>`;
+        boxDetailsContainer.appendChild(detailElem);
+
+        // Add click event listener to each box-detail item
+        detailElem.addEventListener('click', function () {
+            // Update visual data based on clicked detail
+            updateVisualData(headingId, index, index);
+        });
+
+        // Initially set the first detail item as selected
+        if (index === 0 && selectedIndex === 0) {
+            detailElem.classList.add("selected");
+            // Initially set visual data based on the first detail item
+            updateVisualData(headingId, selectedIndex, 0);
+        }
+    });
+
+    // Remove the selected class from all heading items
+    const headings = document.querySelectorAll(".heading");
+    headings.forEach(heading => {
+        heading.classList.remove("selected");
+    });
+
+    // Add selected class to the clicked heading item
+    event.target.classList.add("selected");
+}
+
+
+// Function to update visual data based on selected detail item
+function updateVisualData(headingId, selectedIndex, detailIndex) {
+    const visualImage = document.getElementById("visual-image");
+    const visualData = document.getElementById("visual-data");
+
+    // Set visual image and visual data based on selected index
+    visualImage.src = sectionsData[headingId].visual[selectedIndex];
+    visualData.innerText = sectionsData[headingId].visualData[detailIndex];
+
+    // Remove the selected class from all detail elements
+    const detailElems = document.querySelectorAll(".box-details");
+    detailElems.forEach(elem => {
+        elem.classList.remove("selected");
+    });
+
+    // Add selected class to the clicked detail element
+    detailElems[detailIndex].classList.add("selected");
+
+    // Remove the selected class from all heading items
+    const headings = document.querySelectorAll(".headings");
+    headings.forEach(heading => {
+        heading.classList.remove("selected");
+    });
+
+    // Add selected class to the clicked heading item
+    document.getElementById(headingId).classList.add("selected");
+}
