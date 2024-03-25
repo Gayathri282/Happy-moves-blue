@@ -2252,6 +2252,9 @@ footer.bg-black2 {
         display: block;
     }
 }
+.background-layer{
+    filter: grayscale(0.5);
+}
 @media screen and (max-width: 767px) {
     body {
         text-align: center;
