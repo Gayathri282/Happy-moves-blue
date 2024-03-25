@@ -502,118 +502,6 @@ jQuery(function ($) {
     });
 });
 
-// JavaScript for team section
-
-document.addEventListener("DOMContentLoaded", function() {
-    const teamMembers = document.querySelectorAll(".team-member");
-    teamMembers.forEach(function(member) {
-        const video = member.querySelector(".team-video");
-        member.addEventListener("mouseenter", function() {
-            video.play();
-        });
-        member.addEventListener("mouseleave", function() {
-            video.pause();
-            video.currentTime = 0;
-        });
-    });
-});
-
-
-//JAvascript for therapy focus
-document.addEventListener("DOMContentLoaded", function() {
-    // Add click event listener to each team member
-    var teamMembers = document.querySelectorAll('.team-member');
-    teamMembers.forEach(function(member, index) {
-        member.addEventListener('mouseenter', function(event) {
-            // Hide all team descriptions
-            var allDescriptions = document.querySelectorAll('.team-description');
-            allDescriptions.forEach(function(description) {
-                description.style.display = 'none';
-            });
-            // Show the selected team description
-            var selectedDescription = document.querySelector('#selected-item-description');
-            selectedDescription.style.display = 'block';
-            // Change the text of the paragraph based on the clicked item
-            var selectedItemText = document.querySelector('#selected-item-text');
-            switch(index) {
-                case 0:
-                    selectedItemText.textContent = "Our VR technology offers engaging hand therapy sessions to promote dexterity, coordination, and fine motor skills. Patients can enjoy interactive games and exercises designed to facilitate recovery from hand injuries, arthritis, or neurological conditions.";
-                    break;
-                case 1:
-                    selectedItemText.textContent = "Happy Moves goes beyond physical rehabilitation to address cognitive functions such as memory, attention, and problem-solving. Our VR platform offers stimulating cognitive exercises and activities to support brain health and overall well-being.";
-                    break;
-                case 2:
-                    selectedItemText.textContent = "Our virtual reality platform offers targeted exercises and therapies designed to improve neck mobility, flexibility, and strength. With personalised programs and immersive experiences, patients can regain comfort and function in their daily activities.";
-                    break;
-                case 3:
-                    selectedItemText.textContent = "Happy Moves provides comprehensive shoulder rehabilitation programs aimed at enhancing range of motion, stability, and strength. Through interactive VR exercises, users can effectively recover from injuries, surgeries, or chronic conditions affecting the shoulder.";
-                    break;
-                default:
-                    selectedItemText.textContent = " ";
-            }
-            event.stopPropagation(); // Prevent the click event from bubbling up
-        });
-    });
-
-    // Add click event listener to the document to hide text when anything apart from the li item is clicked
-    document.addEventListener('click', function(event) {
-        var clickedElement = event.target;
-        // Check if the clicked element is not an li item or its parent is not an li item
-        if (clickedElement.tagName !== 'LI' && clickedElement.parentElement.tagName !== 'LI') {
-            var selectedDescription = document.querySelector('#selected-item-description');
-            // selectedDescription.style.display = 'none';
-        }
-    });
-});
-
-//for click 
-document.addEventListener("DOMContentLoaded", function() {
-    // Add click event listener to each team member
-    var teamMembers = document.querySelectorAll('.team-member');
-    teamMembers.forEach(function(member, index) {
-        member.addEventListener('click', function(event) {
-            // Hide all team descriptions
-            var allDescriptions = document.querySelectorAll('.team-description');
-            allDescriptions.forEach(function(description) {
-                description.style.display = 'none';
-            });
-            // Show the selected team description
-            var selectedDescription = document.querySelector('#selected-item-description');
-            selectedDescription.style.display = 'block';
-            // Change the text of the paragraph based on the clicked item
-            var selectedItemText = document.querySelector('#selected-item-text');
-            switch(index) {
-                case 0:
-                    selectedItemText.textContent = "Our VR technology offers engaging hand therapy sessions to promote dexterity, coordination, and fine motor skills. Patients can enjoy interactive games and exercises designed to facilitate recovery from hand injuries, arthritis, or neurological conditions.";
-                    break;
-                case 1:
-                    selectedItemText.textContent = "Happy Moves goes beyond physical rehabilitation to address cognitive functions such as memory, attention, and problem-solving. Our VR platform offers stimulating cognitive exercises and activities to support brain health and overall well-being.";
-                    break;
-                case 2:
-                    selectedItemText.textContent = "Our virtual reality platform offers targeted exercises and therapies designed to improve neck mobility, flexibility, and strength. With personalised programs and immersive experiences, patients can regain comfort and function in their daily activities.";
-                    break;
-                case 3:
-                    selectedItemText.textContent = "Happy Moves provides comprehensive shoulder rehabilitation programs aimed at enhancing range of motion, stability, and strength. Through interactive VR exercises, users can effectively recover from injuries, surgeries, or chronic conditions affecting the shoulder.";
-                    break;
-                default:
-                    selectedItemText.textContent = " ";
-            }
-            event.stopPropagation(); // Prevent the click event from bubbling up
-        });
-    });
-
-    // Add click event listener to the document to hide text when anything apart from the li item is clicked
-    document.addEventListener('click', function(event) {
-        var clickedElement = event.target;
-        // Check if the clicked element is not an li item or its parent is not an li item
-        if (clickedElement.tagName !== 'LI' && clickedElement.parentElement.tagName !== 'LI') {
-            var selectedDescription = document.querySelector('#selected-item-description');
-            // selectedDescription.style.display = 'none';
-        }
-    });
-});
-
-
 
   
 
@@ -709,10 +597,22 @@ document.addEventListener('DOMContentLoaded', function() {
         tgX = event.clientX;
         tgY = event.clientY;
     });
+    
+    // Add event listener for touch events
+    window.addEventListener('touchstart', function(event) {
+        // Update target position based on touch coordinates
+        const touch = event.touches[0];
+        tgX = touch.clientX;
+        tgY = touch.clientY;
+    });
+    
     window.addEventListener('touchmove', function(event) {
-        // Update target position based on mouse coordinates
-        tgX = event.clientX;
-        tgY = event.clientY;
+        // Prevent default behavior to prevent scrolling
+        event.preventDefault();
+        // Update target position based on touch coordinates
+        const touch = event.touches[0];
+        tgX = touch.clientX;
+        tgY = touch.clientY;
     });
 
     // Call the move function to start the animation
@@ -946,6 +846,7 @@ function handleHeadingClick(event) {
 
     // Add selected class to the clicked heading item
     event.target.classList.add("selected");
+    
 }
 
 
@@ -975,4 +876,5 @@ function updateVisualData(headingId, selectedIndex, detailIndex) {
 
     // Add selected class to the clicked heading item
     document.getElementById(headingId).classList.add("selected");
+   
 }
