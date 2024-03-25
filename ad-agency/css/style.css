@@ -3830,14 +3830,19 @@ html.has-scroll-smooth {
       .about-box {
         transition: .5s linear;
         text-align: center;
-        box-shadow: 0 0 10px var(--border-blue);
+        /* box-shadow: 0 0 10px var(--border-blue); */
         padding: 40px;
         max-width: 350px;
         margin: 20px;
-        border-radius: 1rem;
-        background: #000;
+        border-radius: 1.5rem;
+        background: var(--mettalic-blue);
+        
         
     }
+   
+    #about-large p{
+        opacity: 1;
+    } 
     .heading{
         font-size: 18px;
     }
@@ -3847,7 +3852,7 @@ html.has-scroll-smooth {
     }
     .about-box:hover  {
         transform: translate(0,-13px);
-        transition: .5s linear;
+        transition: .2s linear;
     }
     .box-data{
         color: rgb(255, 255, 255) ;
@@ -3886,67 +3891,26 @@ html.has-scroll-smooth {
 .heading{
     color: #fff;
 }
-@media(max-width:400px){
-    .about-section{
-        /* padding: 30px; */
-      }
-      .about{
-       /* padding: 20px; */
-       padding: 0;
-      }
-      .about-container {
-        /* display: flex;
-        align-items: center;
-        justify-content: center; */
-        padding-top: 10px;
-        gap: 10px;
-      }
-      .about-box {
-        /* transition: .5s linear;
-        text-align: center;
-        box-shadow: 0 0 10px var(--border-blue); */
-        padding: 20px;
-        max-width: 110px;
-        margin-left: 2px;
-        margin-right: 0px;
-        /* border-radius: 1rem; */
-        
-    }
-    .heading{
-        font-size: 8px;
-    }
-    .about-box i {
-        font-size: 30px;
-        position: relative;
-    }
-    .box-visual img{
-        /* width: 200px; */
-        border-radius: 1rem !important;
-        max-width: 200px;
-    }
-}
 @media (max-width: 768px) {
-    ..about-container{
-        gap: 0;
-        padding: 0;
+   #about-large{
+    display: none;
+   }
+   .about-small{
+    display: block;
+   }
+}
+.about-section-small{
+    background-color: #fff;
+}
+.about-box h4,.about-box span{
+    color: #fff;
+}
+@media(min-width:769px){
+    #about-large{
+        display: block;
     }
-    .about-box{
-        padding: 8px !important;
-        margin: 14px;
-        max-width: 250px;
-    }
-    .heading{
-        font-size: 10px;
-    }
-    .box-visual img{
-        max-width: 115px;
-    }
-    #about p{
-        font-size:10px;
+    #about-small{
+        display: none;
     }
 }
-@medai(max-width:940px){
-    .box-visual img{
-        max-width:200px;
-    }
-}
+
