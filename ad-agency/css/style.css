@@ -2252,9 +2252,22 @@ footer.bg-black2 {
         display: block;
     }
 }
+/* .blue-div{
+    background: var(--mettalic-blue);
+} */
 .background-layer{
     filter: grayscale(0.5);
 }
+/* :root {
+    --custom-filter: hue-rotate(200deg) saturate(150%) brightness(80%);
+  }
+  
+  .background-layer.second-video {
+    filter: hue-rotate(90deg);
+    
+  } */
+  
+  
 @media screen and (max-width: 767px) {
     body {
         text-align: center;
@@ -3300,85 +3313,6 @@ section{
   margin:50%;
 }
 
-/* ===================================
-   About
-====================================== */
-.about{
-    background:#ffffff;
-    padding: 4.5rem 20px;
-   }
-   /* .about-box-3{
-    background-color: black;
-   } */
-   div.key-features-container{
-    background: linear-gradient(326deg,var(--mettalic-blue),#fff,var(--mettalic-blue));
-   
-   }
-.main-title {
-    position: relative;
-    margin-bottom: 6rem;
-    text-align: center;
-    color: #000;
-}
-.main-title h5 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 400;
-    margin-bottom: 1.1rem;
-    color: #000000;
-}
-.main-title h2 {
-    font-weight: 300;
-    color: #000000;
-    line-height: 1.2;
-    max-width: 650px;
-    margin-bottom: 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-.main-title p {
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.main-title.style-two h5 {
-    margin-bottom: 1.5rem;
-}
-.main-title.style-two h2 {
-    text-transform: initial;
-    font-size: 37px;
-    font-weight: 500;
-    max-width: 720px;
-}
-.main-title.style-two p {
-    color: #ffffff;
-    max-width: 720px;
-}
-
-.rare-box {
-    height: 187px;
-    width: 100%;
-    background: #e57bff;
-    position: relative;
-}
-.about-img-small {
-    margin-left: 30px;
-    top: -155px;
-    margin-bottom: -153px;
-}
-.about ul li {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
-    display: flex;
-    color: #fff;
-    opacity: .8;
-}
-.about ul li:before{
-    font-family: "Font Awesome 5 Free";
-    padding-right: 15px;
-    font-weight: 700;
-    content: '\f061';
-    color: #aac0e4;
-}
 @keyframes scale {
     from {
         transform: translateY(0);
@@ -3394,23 +3328,9 @@ section{
     top: 200px;
     animation: scale .6s alternate infinite linear both;
 }
-
+        
 /* about 3 boxes */
-.about-box {
-    transition: .5s linear;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    padding: 40px;
-    max-width: 350px;
-}
-.about-box i {
-    font-size: 30px;
-    position: relative;
-}
-.about-box:hover  {
-    transform: translate(0,-13px);
-    transition: .5s linear;
-}
+
 
 /* Key features section */
 
@@ -3520,6 +3440,11 @@ section{
     padding: 10px;
     color: black;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+@media(min-width:768px){
+    .carousel-caption.active{ 
+        margin-left: 12px !important;
+    }
 }
 .carousel-inner{
     position: relative;
@@ -3880,3 +3805,148 @@ html.has-scroll-smooth {
       }.swiper-slide-shadow-left,.swiper-slide-shadow-right{
         background: transparent !important;
       }
+
+      /* New About section */
+      .about-section{
+        background-color: #fff;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 30px;
+      }
+      .about{
+        margin: auto;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+      .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+        gap: 1rem;
+      }
+      .about-box {
+        transition: .5s linear;
+        text-align: center;
+        box-shadow: 0 0 10px var(--border-blue);
+        padding: 40px;
+        max-width: 350px;
+        margin: 20px;
+        border-radius: 1rem;
+        background: #000;
+        
+    }
+    .heading{
+        font-size: 18px;
+    }
+    .about-box i {
+        font-size: 30px;
+        position: relative;
+    }
+    .about-box:hover  {
+        transform: translate(0,-13px);
+        transition: .5s linear;
+    }
+    .box-data{
+        color: rgb(255, 255, 255) ;
+    }
+    #visual-data{
+        color: #ffffff;
+    }
+    /* CSS to enhance selected item */
+.box-details.selected {
+   
+    transform: scale(1.1); /* Increase scale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+}
+.headings.selected{
+    transform: scale(1.1); /* Increase scale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+}
+.headings,.box-details{
+    cursor: pointer;
+}
+.box-visual{
+    padding: 0;
+}
+.box-visual img{
+    /* width: 200px; */
+    border-radius: 1rem !important;
+    max-width: 300px;
+}
+.box-visual{
+    background: none;
+}
+.box-visual{
+    width: auto;
+    box-shadow: none !important;
+}
+.heading{
+    color: #fff;
+}
+@media(max-width:400px){
+    .about-section{
+        /* padding: 30px; */
+      }
+      .about{
+       /* padding: 20px; */
+       padding: 0;
+      }
+      .about-container {
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        padding-top: 10px;
+        gap: 10px;
+      }
+      .about-box {
+        /* transition: .5s linear;
+        text-align: center;
+        box-shadow: 0 0 10px var(--border-blue); */
+        padding: 20px;
+        max-width: 110px;
+        margin-left: 2px;
+        margin-right: 0px;
+        /* border-radius: 1rem; */
+        
+    }
+    .heading{
+        font-size: 8px;
+    }
+    .about-box i {
+        font-size: 30px;
+        position: relative;
+    }
+    .box-visual img{
+        /* width: 200px; */
+        border-radius: 1rem !important;
+        max-width: 200px;
+    }
+}
+@media (max-width: 768px) {
+    ..about-container{
+        gap: 0;
+        padding: 0;
+    }
+    .about-box{
+        padding: 8px !important;
+        margin: 14px;
+        max-width: 250px;
+    }
+    .heading{
+        font-size: 10px;
+    }
+    .box-visual img{
+        max-width: 115px;
+    }
+    #about p{
+        font-size:10px;
+    }
+}
+@medai(max-width:940px){
+    .box-visual img{
+        max-width:200px;
+    }
+}
