@@ -3819,7 +3819,7 @@ background-color: #486891;
   
    /* First image slide */
    .image-hero-section {
-    background-image: url('/ad-agency/img/Ayurgreen\ -happymoves.JPG'); /* Replace 'your-image-url.jpg' with the URL or path of your image */
+    background-image: url('./ad-agency/img/Ayurgreen\ -happymoves.JPG'); /* Replace 'your-image-url.jpg' with the URL or path of your image */
     background-size: cover;
     background-position: center;
 }
@@ -3982,3 +3982,4 @@ input:checked + label .description-about {
 .about-box{
     border: 2px solid #fff;
 }
+
