@@ -3915,18 +3915,18 @@ input:checked + label .description-about {
 }
 
 .card-about[for="c1"] {
-    background-image: url('/ad-agency/img/neck-happymoves.jpg');
+    background-image: url('../img/neck-happymoves.jpg');
 }
 .card-about[for="c2"] {
-    background-image: url('/ad-agency/img/shoulder-happymoves.jpg');
+    background-image: url('../img/shoulder-happymoves.jpg');
     filter: grayscale(0.9);
 }
 .card-about[for="c3"] {
-    background-image: url('/ad-agency/img/hand-happymoves.jpg');
+    background-image: url('../img/hand-happymoves.jpg');
     filter: grayscale(0.9);
 }
 .card-about[for="c4"] {
-    background-image: url('/ad-agency/img/cognitive-happymoves.jpg');
+    background-image: url('../img/cognitive-happymoves.jpg');
     filter: grayscale(0.9);
 }
 .focused-therapy-heading{
