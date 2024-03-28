@@ -726,7 +726,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Testimonial
 document.addEventListener('DOMContentLoaded', function() {
-    // Testimonial Slider Initialization (Using Swiper.js)
+    // Initialize Swiper
     var swiper = new Swiper(".swiper", {
         effect: "coverflow",
         grabCursor: true,
@@ -746,135 +746,65 @@ document.addEventListener('DOMContentLoaded', function() {
             clickable: true
         }
     });
+
+    // // Automatically select the next slide after a time interval
+    // var intervalDuration = 3900; // Adjust the time interval as needed (in milliseconds)
+    // var intervalId = setInterval(selectNextSlide, intervalDuration);
+
+    // function selectNextSlide() {
+    //     swiper.slideNext();
+    // }
+
+    // Stop automatic selection when the user interacts with the swiper
+    swiper.on('slideChange', function() {
+        clearInterval(intervalId);
+        intervalId = setInterval(selectNextSlide, intervalDuration); // Restart interval
+    });
+
+    // Stop automatic selection on manual slide selection
+    swiper.on('click', function() {
+        clearInterval(intervalId);
+        intervalId = setInterval(selectNextSlide, intervalDuration); // Restart interval
+    });
 });
+
+
+
+
  // Remove the loading class once the content is loaded
  window.addEventListener('load', function() {
     document.body.classList.remove('loading');
 });
 
-// new about section
-// Define data for different sections
-const imagePath1 = "ad-agency\\img\\Milife Medicare -happymoves.jpg";
-const imagePathNeck='ad-agency\\img\\neck-happymoves.jpg'
-const imagePathHand= "ad-agency\\img\\hand-happymoves.jpg";
-const sectionsData = {
-    "key-features": {
-        "details": ["Immersive Therapy", "Customised Programs", "Real-Time Progress Tracking", "Comprehensive Skill Improvement"],
-        "visual": [imagePath1,imagePathNeck,imagePath1,imagePath1], // Array of image paths
-        "visualData": ["Dive into a world where therapy becomes an immersive and engaging experience, enhancing motivation and participation.",
-            "Tailor rehabilitation programs to individual needs, addressing specific areas such as upper body, neck, shoulder, hand, and spinal cord",
-            "Gain insights into patient progress with real-time tracking, empowering therapists to make data-driven decisions for optimal outcomes.",
-            "Address fine motor skills, gross motor skills, and cognitive improvements simultaneously, providing a holistic approach to rehabilitation."]
-    },
 
-    "what-we-give": {
-        "details": ["Muscle Memory Enhancement in Physiotherapy",
-            "Enhanced Patient Engagement and Motivation",
-            "Cognitive Improvement in Medical Rehabilitation"],
-        "visual": ['ad-agency/img/Ayurgreen -happymoves.JPG', 'path_to_what_we_give_image_2.jpg', 'ad-agency/img/Milife Medizone-happymoves.jpg'], // Array of image paths
-        "visualData": ["Improves muscle memory development, accuracy, and strength enhancement for patients undergoing physiotherapeutic rehabilitation.",
-            "Guarantees a captivating and pleasant experience, fostering heightened patient motivation and adherence.",
-            "Effective for improving accuracy and cognitive senses in a range of medical conditions, including stroke, paralysis, spinal cord injury, Parkinson’s Disease, and upper Musculoskeletal Problems."
-        ]
-    },
-    "focused-therapy": {
-        "details": ["Neck", "Shoulder", "Hand", "Cognitive Enhancement"],
-        "visual": [imagePathNeck, 'path_to_focused_therapy_image_2.jpg',imagePathHand], // Array of image paths
-        "visualData": ["Our virtual reality platform offers targeted exercises and therapies designed to improve neck mobility, flexibility, and strength. With personalised programs and immersive experiences, patients can regain comfort and function in their daily activities.",
-            "Happy Moves provides comprehensive shoulder rehabilitation programs aimed at enhancing range of motion, stability, and strength. Through interactive VR exercises, users can effectively recover from injuries, surgeries, or chronic conditions affecting the shoulder.",
-            "Our VR technology offers engaging hand therapy sessions to promote dexterity, coordination, and fine motor skills. Patients can enjoy interactive games and exercises designed to facilitate recovery from hand injuries, arthritis, or neurological conditions.",
-            "Happy Moves goes beyond physical rehabilitation to address cognitive functions such as memory, attention, and problem-solving. Our VR platform offers stimulating cognitive exercises and activities to support brain health and overall well-being."]
-    }
-};
+
+
+// key features automtic sliding
 document.addEventListener("DOMContentLoaded", function() {
-    // Add event listeners to heading items
-    const headings = document.querySelectorAll(".heading");
-    headings.forEach(heading => {
-        heading.addEventListener("click", handleHeadingClick);
-    });
+    const slides = document.querySelectorAll("input[type='radio']"); // Select all radio buttons
+    let currentIndex = 0; // Initialize index to track current slide
+    let intervalId; // Declare variable to store interval ID
 
-    // Trigger click on the first heading item to select it
-    const firstHeading = document.querySelector(".heading");
-    firstHeading.click();
-});
-
-// Function to handle click on heading items
-function handleHeadingClick(event) {
-    const headingId = event.target.parentElement.id; // Get the ID of the clicked heading
-    const boxDetailsContainer = document.getElementById("box-details-container");
-
-    // Clear existing content
-    boxDetailsContainer.innerHTML = '';
-
-    let selectedIndex = 0; // Default selected index
-
-    // Set selected index for "Focused Therapy" and "What We Give" heading items
-    if (headingId === "focused-therapy" || headingId === "what-we-give") {
-        selectedIndex = 0;
-    } else {
-        // Get the index of the clicked detail item
-        selectedIndex = Array.from(event.target.parentElement.parentElement.children).indexOf(event.target.parentElement);
+    function showNextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length; // Increment index and wrap around
+      slides[currentIndex].checked = true; // Show next slide by setting its corresponding radio button to checked
     }
 
-    // Populate with new content based on clicked heading and selected index
-    const details = sectionsData[headingId].details;
-    details.forEach((detail, index) => {
-        const detailElem = document.createElement("div");
-        detailElem.classList.add("about-box", "box-details");
-        detailElem.innerHTML = `<p class="box-data">${detail}</p>`;
-        boxDetailsContainer.appendChild(detailElem);
+    // Start automatic sliding
+    function startAutoSlide() {
+      intervalId = setInterval(showNextSlide, 3000);
+    }
 
-        // Add click event listener to each box-detail item
-        detailElem.addEventListener('click', function () {
-            // Update visual data based on clicked detail
-            updateVisualData(headingId, index, index);
-        });
+    startAutoSlide(); // Start automatic sliding immediately
 
-        // Initially set the first detail item as selected
-        if (index === 0 && selectedIndex === 0) {
-            detailElem.classList.add("selected");
-            // Initially set visual data based on the first detail item
-            updateVisualData(headingId, selectedIndex, 0);
-        }
+    // Update currentIndex when a slide is manually selected
+    slides.forEach((slide, index) => {
+      slide.addEventListener("change", () => {
+        currentIndex = index; // Update currentIndex to the manually selected slide index
+        clearInterval(intervalId); // Clear the interval
+        startAutoSlide(); // Restart automatic sliding from the selected slide
+      });
     });
-
-    // Remove the selected class from all heading items
-    const headings = document.querySelectorAll(".heading");
-    headings.forEach(heading => {
-        heading.classList.remove("selected");
-    });
-
-    // Add selected class to the clicked heading item
-    event.target.classList.add("selected");
-    
-}
+  });
 
 
-// Function to update visual data based on selected detail item
-function updateVisualData(headingId, selectedIndex, detailIndex) {
-    const visualImage = document.getElementById("visual-image");
-    const visualData = document.getElementById("visual-data");
-
-    // Set visual image and visual data based on selected index
-    visualImage.src = sectionsData[headingId].visual[selectedIndex];
-    visualData.innerText = sectionsData[headingId].visualData[detailIndex];
-
-    // Remove the selected class from all detail elements
-    const detailElems = document.querySelectorAll(".box-details");
-    detailElems.forEach(elem => {
-        elem.classList.remove("selected");
-    });
-
-    // Add selected class to the clicked detail element
-    detailElems[detailIndex].classList.add("selected");
-
-    // Remove the selected class from all heading items
-    const headings = document.querySelectorAll(".headings");
-    headings.forEach(heading => {
-        heading.classList.remove("selected");
-    });
-
-    // Add selected class to the clicked heading item
-    document.getElementById(headingId).classList.add("selected");
-   
-}
