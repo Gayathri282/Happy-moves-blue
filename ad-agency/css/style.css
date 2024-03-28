@@ -2255,9 +2255,9 @@ footer.bg-black2 {
 /* .blue-div{
     background: var(--mettalic-blue);
 } */
-.background-layer{
+/* .background-layer{
     filter: grayscale(0.5);
-}
+} */
 /* :root {
     --custom-filter: hue-rotate(200deg) saturate(150%) brightness(80%);
   }
@@ -2663,8 +2663,14 @@ team-list{
   /* css slider */
 .slider{
     height: 100vh;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     position: relative;
+    /* margin: 60px; */
+}
+@media(min-width:768px){
+    .slider{
+        margin: 60px;
+    }
 }
 .slider .list .item{
     position: absolute;
@@ -2672,6 +2678,10 @@ team-list{
     overflow: hidden;
     opacity: 0;
     transition: .5s;
+    height: 80vh;
+    border-radius: 2.5rem;
+    /* top: 90px; */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1);
 }
 .slider .list .item img{
     width: 100%;
@@ -2685,9 +2695,9 @@ team-list{
     position: absolute;
     left: 0;
     bottom: 0;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to top, #000 20%, transparent
-    );
+    ); */
 }
 .slider .list .item .content{
     position: absolute;
@@ -2753,7 +2763,7 @@ team-list{
 }
 .thumbnail{
     position: absolute;
-    bottom: 50px;
+    bottom: 68px;
     z-index: 11;
     display: flex;
     gap: 10px;
@@ -2764,13 +2774,14 @@ team-list{
     overflow: auto;
     justify-content: center;
     cursor: pointer;
+   
 }
 .thumbnail::-webkit-scrollbar{
     width: 30%;
 }
 .thumbnail .item{
-    width: 150px;
-    height: 145px;
+    width: 135px;
+    height: 120px;
     filter: brightness(.5);
     transition: .5s;
     flex-shrink: 0;
@@ -2781,6 +2792,7 @@ team-list{
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: 0px 0px 20px #000000;
 }
 .thumbnail .item.active{
     filter: brightness(1.2);
@@ -2811,7 +2823,7 @@ team-list{
 }
 ::-webkit-scrollbar-thumb {
     background: var(--border-blue);
-    opacity: 0;
+    /* opacity: 0; */
 }
 
   /* .about-boxes-section{
@@ -2840,7 +2852,7 @@ team-list{
     .slider .list .item img{
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
     .card-about > .row-about > .description-about {
         display: flex;
@@ -3427,7 +3439,77 @@ html.has-scroll-smooth {
         background: #fff;
         overflow: hidden;
       }
-      
+      @media(min-width:786px){
+        .testimonial-section{
+            padding: 60px;
+        }
+        .swiper.item-wrapper.is-height-sticky-radius{
+            overflow: hidden;
+        }
+      }
+      @media(max-width:786px){
+        /* .swiper-slide{
+            border-radius: 0px !important;
+        } */
+        .swiper.item-wrapper.is-height-sticky-radius{
+            border-radius: 0px !important;
+            /* height: 80vh;
+            border-radius: 2.5rem; */
+            top: 0px;
+            box-shadow: none;
+            
+        }
+        /* .wrapper-about>.item-wrapper.is-height-sticky-radius{
+            overflow: hidden;
+        } */
+      }
+      @media (max-width: 1012px) and (min-width: 888px) {
+        label .card-about {
+            width: 30px !important;
+        }
+        input:checked + label {
+            width: 400px !important;
+        }
+        .card-about > .row > .description-about{
+            width: 455px;
+        }
+        .description-about p{
+            padding-right: 70px;
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 888px) and (min-width: 768px) {
+        label .card-about {
+            width: 10px !important;
+        }
+        input:checked + label {
+            width: 200px !important;
+        }
+        .card-about > .row > .description-about{
+            width: 355px !important;
+        }
+        .description-about h4{
+            line-height: 1;
+            font-size: 13px;
+            padding-right: 80px;
+        }
+        .description-about p{
+            line-height: 1;
+            font-size: 10px;
+            padding-right: 100px;
+        }
+        .description-about{
+            width: 200px;
+            height: 130px;
+            padding: 25px;
+        }
+    } 
+    .text-black{
+        color: #000;
+    }
+    .bg-white{
+        background-color: #fff;
+      }
       .swiper {
         width: 100%;
         padding-top: 50px;
@@ -3610,7 +3692,7 @@ html.has-scroll-smooth {
         padding: 40px;
         max-width: 350px;
         margin: 20px;
-        border-radius: 1.5rem;
+        border-radius: 1rem;
         background: var(--mettalic-blue);
         
         
@@ -3638,13 +3720,31 @@ html.has-scroll-smooth {
     }
     /* CSS to enhance selected item */
 .box-details.selected {
-   
+  font-weight: 500;
+    /* transform: scale(1.1); Increase scale */
+    box-shadow: 0 0 20px rgba(41, 81, 132, 0.9); 
+    border: 2px solid #fff;
+    /* Add box shadow */
+}
+.heading.selected{
     transform: scale(1.1); /* Increase scale */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  */
+    /* Add box shadow */
+    font-weight: 700;
+    /* background-color: #000; */
+}
+#about-large{
+    background: white;
+}
+.third-about-col{
+    background: #ffffff;
+    display: flex;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px #000;
 }
 .headings.selected{
-    transform: scale(1.1); /* Increase scale */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+    background-color: pink;
 }
 .headings,.box-details{
     cursor: pointer;
@@ -3663,6 +3763,10 @@ html.has-scroll-smooth {
 .box-visual{
     width: auto;
     box-shadow: none !important;
+}
+.box-visual-data{
+    border: 2px solid #fff !important;
+    box-shadow: 0px 0px 20px #000;
 }
 .heading{
     color: #fff;
@@ -3700,229 +3804,181 @@ html.has-scroll-smooth {
     }
 }
 
-
-
+/* #key-features{
+background-color: #486891;
+}
+#what-we-give{
+    background-color: var(--mettalic-blue);
+}
+#focused-therapy{
+    background-color: #2e425d;
+} */
+/* 
 /* Bubbles animation background */
 
-.text-container {
-    z-index: 100;
-    width: 84vw;
+  
+   /* First image slide */
+   .image-hero-section {
+    background-image: url('/ad-agency/img/Ayurgreen\ -happymoves.JPG'); /* Replace 'your-image-url.jpg' with the URL or path of your image */
+    background-size: cover;
+    background-position: center;
+}
+.text-black{
+    color: black !important;
+    font-size: 33px;
+}
+
+/* key features */
+.wrapper-about{
+    width: 100%;
     height: 100vh;
-    line-height: 1.4;
     display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.container-about {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.card-about {
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.card-about > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* .card-about > .row > .icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
-    color: white;
-    opacity: 0.8;
-    user-select: none;
-    text-shadow: 1px 1px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-  .text-container span{
-    /* font-size: 20px; */
-    margin-bottom: 200px;
+    margin: 15px;
+} */
+
+.card-about > .row > .description-about {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+    padding: 60px;
+}
+
+.description-about p {
+    color: #ffffff !important;
+    padding-top: 5px;
+}
+
+
+.description-about h4 {
+    text-transform: uppercase;
+    color: #fff !important;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description-about {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.card-about[for="c1"] {
+    background-image: url('/ad-agency/img/neck-happymoves.jpg');
+}
+.card-about[for="c2"] {
+    background-image: url('/ad-agency/img/shoulder-happymoves.jpg');
+    filter: grayscale(0.9);
+}
+.card-about[for="c3"] {
+    background-image: url('/ad-agency/img/hand-happymoves.jpg');
+    filter: grayscale(0.9);
+}
+.card-about[for="c4"] {
+    background-image: url('/ad-agency/img/cognitive-happymoves.jpg');
+    filter: grayscale(0.9);
+}
+.focused-therapy-heading{
+    margin-bottom: -55px;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: 400;
+    background-color: #fff;
+}
+.testimonial-heading{
+    font-size: 35px;
     font-weight: 400;
 }
-  .team-container .span{
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-    position: absolute;
-    top: 150px;
-    font-weight: 600;
+
+/* what we gives section */
+@media(min-width:858px) and (max-width:958px){
+    .about-box span{
+        font-size: 16px;
+    }
 }
-  
-  
-  
-  @keyframes moveInCircle {
-    0% {
-      transform: rotate(0deg);
+@media(min-width:958px){
+    .about-box span{
+        font-size: 20px;
     }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes moveVertical {
-    0% {
-      transform: translateY(-50%);
-    }
-    50% {
-      transform: translateY(50%);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
-  }
-  
-  @keyframes moveHorizontal {
-    0% {
-      transform: translateX(-50%) translateY(-10%);
-    }
-    50% {
-      transform: translateX(50%) translateY(10%);
-    }
-    100% {
-      transform: translateX(-50%) translateY(-10%);
-    }
-  }
-  
-:root {
-    --color-bg1: rgb(108, 0, 162);
-    --color-bg2: rgb(0, 17, 82);
-    --color1: 18, 113, 255;
-    --color2: 221, 74, 255;
-    --color3: 100, 220, 255;
-    --color4: 200, 50, 50;
-    --color5: 180, 180, 50;
-    --color-interactive: 140, 100, 255;
-    --circle-size: 80%;
-    --blending: hard-light;
-  }
-  
-  
-  .gradient-bg {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(140deg, #000, #15335a);
-    top: 0;
-    left: 0;
-  }
-  
-    svg {
-      display: none;
-    }
-  
-  
-    .gradients-container {
-      filter: url(#goo) blur(40px) ;
-      width: 100%;
-      height: 100%;
-    }
-    
-  
-    .g1 {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: var(--circle-size);
-      height: var(--circle-size);
-      top: calc(50% - var(--circle-size) / 2);
-      left: calc(50% - var(--circle-size) / 2);
-  
-      transform-origin: center center;
-      animation: moveVertical 30s ease infinite;
-  
-      opacity: 1;
-    }
-  
-    .g2 {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: var(--circle-size);
-      height: var(--circle-size);
-      top: calc(50% - var(--circle-size) / 2);
-      left: calc(50% - var(--circle-size) / 2);
-  
-      transform-origin: calc(50% - 400px);
-      animation: moveInCircle 20s reverse infinite;
-  
-      opacity: 1;
-    }
-  
-    .g3 {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: var(--circle-size);
-      height: var(--circle-size);
-      top: calc(50% - var(--circle-size) / 2 + 200px);
-      left: calc(50% - var(--circle-size) / 2 - 500px);
-  
-      transform-origin: calc(50% + 400px);
-      animation: moveInCircle 40s linear infinite;
-  
-      opacity: 1;
-    }
-  
-    .g4 {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: var(--circle-size);
-      height: var(--circle-size);
-      top: calc(50% - var(--circle-size) / 2);
-      left: calc(50% - var(--circle-size) / 2);
-  
-      transform-origin: calc(50% - 200px);
-      animation: moveHorizontal 40s ease infinite;
-  
-      opacity: 0.7;
-    }
-  
-    .g5 {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: calc(var(--circle-size) * 2);
-      height: calc(var(--circle-size) * 2);
-      top: calc(50% - var(--circle-size));
-      left: calc(50% - var(--circle-size));
-  
-      transform-origin: calc(50% - 800px) calc(50% + 200px);
-      animation: moveInCircle 20s ease infinite;
-  
-      opacity: 1;
-    }
-  
-    .interactive {
-      position: absolute;
-      background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
-      mix-blend-mode: var(--blending);
-  
-      width: 100%;
-      height: 100%;
-      top: -50%;
-      left: -50%;
-  
-      opacity: 0.7;
+    .about-box{
+        height: 300px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0,0.5);
     }
 
-  /* Adjustments for small devices */
-@media only screen and (max-width: 767px) {
-    .gradient-bg {
-      background-size: cover; /* Ensure the background covers the entire viewport */
+}
+@media(max-width:768px){
+    #focused-therapy{
+        display: none !important; 
     }
-  
-    .g1,
-    .g2,
-    .g3,
-    .g4,
-    .g5 {
-      width: 50px; /* Reduce the size of background circles */
-      height: 50px;
+    #what-we-gives{
+        display: none;
     }
-  
-    .gradients-container{
-        background-size: cover;
+    span.what-we-gives{
+        color: var(--mettalic-blue);
     }
-  }
-  
+}
+.about-box.key-feature,
+.about-box.focused-therapy{
+    border: 2px solid white;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+    
+}
+.about-box.what-we-gives{
+    background: white;
+    border: 2px solid var(--mettalic-blue);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
+}
+.about-box{
+    border: 2px solid #fff;
+}
